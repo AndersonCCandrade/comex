@@ -1,5 +1,9 @@
 <?php
 
+//              Tarefa: Crie um cliente com dados básicos. Para praticar a criação de arrays.
+//              Crie um array que conterá os dados básicos do cliente, como nome, e-mail,
+//              número de celular e endereço.
+
 $cliente=[
     'nome' => 'Anderson',
     'email' => 'anderson@e-mail.com',
