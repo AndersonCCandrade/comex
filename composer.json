@@ -1,0 +1,16 @@
+{
+    "name": "andersonccandrade/comex",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Andersonccandrade\\Comex\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anderson Andrade",
+            "email": "anderson.carloscarvalho@gmail.com"
+        }
+    ],
+    "require": {}
+}
