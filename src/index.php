@@ -2,16 +2,13 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Andersonccandrade\Comex\Classes\Cliente;
-use Andersonccandrade\Comex\Classes\Produto;
-use Andersonccandrade\Comex\Classes\Endereco;
-use Andersonccandrade\Comex\Classes\Pedido;
-use Andersonccandrade\Comex\Classes\Carrinho;
+use Andersonccandrade\Comex\Classes\{Cliente, Produto, Endereco, Pedido, Carrinho};
+use Andersonccandrade\Comex\Classes\Pagamento\{Pix,CartaoDeCredito,Boleto};
 
 $clientes = [
     $cliente1 = new Cliente(
         'Anderson Carlos',
-        'anderson.ccarvalho@sp.senac.br',
+        'anderson.ccarvalho@tr.spfac.br',
         '11991500354',
         new Endereco(
             '02604200',
@@ -24,7 +21,7 @@ $clientes = [
 
     $cliente2 = new Cliente(
         'Davi Carvalho',
-        'davi.bcarvalho@sp.senac.br',
+        'davi.bcarvalho@tr.spfac.br',
         '11989895656',
         new Endereco(
             '02701200',
@@ -70,7 +67,7 @@ foreach ($produtos as $chave => $item){
 
 
 
-$pedido = new Pedido(1, $cliente1, $produtos);
+$pedido = new Pedido(1, $cliente1, $produtos,new Pix());
 
 
 echo "# Pedido n " . $pedido->getId() . PHP_EOL;
