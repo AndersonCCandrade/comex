@@ -12,7 +12,5 @@
             "email": "anderson.carloscarvalho@gmail.com"
         }
     ],
-    "require": {
-      "ext-cassandra": "*"
-    }
+    "require": {}
 }
