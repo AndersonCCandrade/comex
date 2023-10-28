@@ -47,15 +47,31 @@ class Produto
 
     public function comprar(int $quantidade = 1)
     {
-        if ($quantidade > $this->qtd_estoque){
-            echo 'Quantidade em estoque indisponivel';
+        try {
+            if ($quantidade > $this->qtd_estoque) {
+                throw new \InvalidArgumentException("A quantidade de compra não pode ser maior que a quantidade em estoque." . PHP_EOL);
+            }
+            if ($quantidade < 0) {
+                throw new \InvalidArgumentException("O Valor negativo ($quantidade) não é valido para operação." .PHP_EOL);
+            }
+        }catch (\InvalidArgumentException $erro){
+            echo $erro->getMessage();
             return;
         }
+
         $this->qtd_estoque-=$quantidade;
     }
-    public function repor($quantidade = 1)
+    public function repor($quantidade):void
     {
-        $this->qtd_estoque-=$quantidade;
+        try{
+            if ($quantidade < 0){
+                throw new \InvalidArgumentException("O Valor negativo ($quantidade) não é valido para operação." .PHP_EOL);
+            }
+        }catch (\InvalidArgumentException $erro){
+            echo $erro->getMessage();
+            return;
+        }
+        $this->qtd_estoque+=$quantidade;
     }
 
 
