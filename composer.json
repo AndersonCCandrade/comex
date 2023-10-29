@@ -12,5 +12,7 @@
             "email": "anderson.carloscarvalho@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-cassandra": "*"
+    }
 }
