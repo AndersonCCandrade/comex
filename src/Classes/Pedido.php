@@ -2,13 +2,16 @@
 
 namespace Andersonccandrade\Comex\Classes;
 
+use Andersonccandrade\Comex\Interfaces\MeioDePagamento;
+
 class Pedido
 {
 
     public function __construct(
         private int $id,
         private Cliente $cliente,
-        private array $produtos
+        private array $produtos,
+        private MeioDePagamento $meioDePagamento
     ) {
     }
 
@@ -28,6 +31,12 @@ class Pedido
         return $this->produto;
     }
 
+    public function getMeioDePagamento(): MeioDePagamento
+    {
+        return $this->meioDePagamento;
+    }
+
+
     public function getValorTotal()
     {
         $total = 0;
@@ -46,8 +55,5 @@ class Pedido
     {
         array_push($this->produtos, $produto);
     }
-
-
-
 
 }
