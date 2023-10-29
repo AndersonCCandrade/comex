@@ -20,17 +20,12 @@ class Cliente
         self::$numero ++;
         $this->numero_cliente += self::$numero;
 
-        try {
-            if ($this->validaEmail($email) !== false) {
-                $this->email = $email;
-            } else {
-                throw new \InvalidArgumentException("Argumento $email Invalido" . PHP_EOL);
-            }
-        }catch (\InvalidArgumentException $erro){
-            echo $erro->getMessage();
-            echo "Email Invalido" . PHP_EOL;
-            return;
+        if ($this->validaEmail($email) !== false) {
+            $this->email =$email;
+        } else {
+            $this->email = "Email inválido";
         }
+
     }
 
     //Getters - Métodos de retorno de valor
@@ -83,16 +78,10 @@ class Cliente
 
     public function setEmail(string $email): void
     {
-        try {
-            if ($this->validaEmail($email) !== false) {
-                $this->email =$email;
-            } else {
-                throw new \InvalidArgumentException("Argumento $email Invalido". PHP_EOL);
-            }
-        }catch (\InvalidArgumentException $erro){
-            echo $erro->getMessage();
-            echo "Email Invalido" . PHP_EOL;
-            return;
+        if ($this->validaEmail($email) !== false) {
+            $this->email =$email;
+        } else {
+            $this->email = "Email inválido";
         }
     }
 
@@ -119,7 +108,6 @@ class Cliente
     private function validaEmail(string $email)
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
-
     }
 
 
